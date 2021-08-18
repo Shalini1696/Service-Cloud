@@ -1,0 +1,103 @@
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
+
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+ function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+</script>
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+<html>
+<head>
+    <title>Ask a question | Cancer Research UK</title>
+    <style type='text/css'>
+      div {
+        margin-bottom: 10px;
+      }
+      label {
+        display: inline-block;
+        width: 150px;
+        text-align: left;
+      }
+	  * {
+  font-family: Arial, Helvetica, sans-serif;
+}
+	  select { 	  
+		width: 180px; 
+		height: 23px;
+		text-align: left; 
+	  }
+	  textarea{
+	    width: 180px; 		
+		text-align: left; 	
+	  }
+	   .required:after {
+			content:" *";
+			color: red;
+		}
+		 .embeddedServiceHelpButton .helpButton .uiButton {
+        background-color: #1986D4;
+       
+        min-width:190px;
+        font-family: "Salesforce Sans", sans-serif;
+    }
+   
+    @font-face {
+        font-family: 'Salesforce Sans';
+        src: url('https://c1.sfdcstatic.com/etc/clientlibs/sfdc-aem-master/clientlibs_base/fonts/SalesforceSans-Regular.woff') format('woff'),
+        url('https://c1.sfdcstatic.com/etc/clientlibs/sfdc-aem-master/clientlibs_base/fonts/SalesforceSans-Regular.ttf') format('truetype');
+    }
+		
+	 </style>
+  </head>
+
+<form action="https://cancerresearchuk--a365poc.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+
+<input type=hidden name='captcha_settings' value='{"keyname":"test","fallback":"true","orgId":"00D26000000Gf6Y","ts":""}'>
+<input type=hidden name="orgid" value="00D26000000Gf6Y">
+<input type=hidden name="retURL" value="http://">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+<!--  these lines if you wish to test in debug mode.                          -->
+<!--  <input type="hidden" name="debug" value=1>                              -->
+<!--  <input type="hidden" name="debugEmail" value="shalini.t@atos.net">      -->
+<!--  ----------------------------------------------------------------------  -->
+<center>
+<img src="img/logo.png" class="img-rounded"/>
+<h2> Ask a question </h2>
+<p>For cancer related enquiries please contact our support service team</p>
+<h4>Your details</h4>
+<label for="firstname" class="ft">First Name</label><input  id="00N26000009qHb6" maxlength="30" name="00N26000009qHb6" size="20" type="text" /><br><br>
+
+<label for="surname" class="ft">Surname</label><input id="00N26000009qHbB" maxlength="20" name="00N26000009qHbB" size="20" type="text" /><br><br>
+
+<label class="required" for="email">Email</label>
+<input id="email" maxlength="80" name="email" size="20" type="email" required><br>
+ 
+<h4>Your Question</h4>
+<label class="required" for="category">Category</label><select  id="00N26000009qHbG" name="00N26000009qHbG" title="Category" required>
+<option value="">--None--</option>
+<option value="Volunteering">Volunteering</option>
+<option value="Donation Query">Donation Query</option>
+<option value="CRUK Events">CRUK Events</option>
+<option value="Fundraising">Fundraising</option>
+<option value="CRUK Shops">CRUK Shops</option>
+<option value="Research Opportunities">Research Opportunities</option>
+<option value="Others">Others</option>
+</select><br><br>
+
+<label class="required" for="description"> Please enter your Question</label>
+<textarea name="description" rows="4" cols="35" required></textarea><br><br>
+
+<div class="g-recaptcha" data-sitekey="6LcQc-IbAAAAAASwghl37dVQUhCb3xwkeZAiEVgt"></div><br>
+<input type="submit">
+</center>
+</form>
+</html>
